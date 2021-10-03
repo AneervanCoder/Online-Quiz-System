@@ -1,0 +1,222 @@
+ 
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class ProjectProposal {
+	public static void main(String []args)
+	{
+	startTest st = new startTest();//shows the START TEST Window
+	}
+}
+
+class startTest extends JFrame//class for start test
+{
+	startTest()
+	{
+		setSize(200,75);
+		setResizable(false);
+		setVisible(true);
+		FlowLayout flm = new FlowLayout();
+		Container ca = getContentPane();
+		ca.setLayout(flm);
+		JButton st = new JButton("Start Test");
+		ca.add(st);
+		st.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				Quiz q = new Quiz();//when i pressed START TEST it will show another window which is the questionaire
+			}
+		});
+	}
+}
+class Quiz extends JFrame implements ActionListener//class for questionaire
+{
+	int i  = 0 , s = 0;
+	JTextField qf1 = new JTextField("",1);
+	JLabel q1 = new JLabel("# 1 What is the unit for acceleration ? :");//question
+	JButton qbt1 = new JButton("a.) meters per second squared");//choice A
+	JButton qbt2 = new JButton("b.) kilometers per second");//choice B
+	JButton qbt3 = new JButton("c.) centimeter per second squared");//choice C
+	JButton qbt4 = new JButton("d.) meter per second");//choice D
+	JButton Submit = new JButton(" SUBMIT ");
+	Quiz()
+	{
+		super("Science Quiz");
+		setSize(450,400);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		Container ca = getContentPane();
+		ca.setBackground(Color.white);
+		FlowLayout flm = new FlowLayout();
+		ca.setLayout(flm);
+		ca.add(qf1);
+		ca.add(q1);
+		ca.add(qbt1);
+		qbt1.addActionListener(this);
+		ca.add(qbt2);
+		qbt2.addActionListener(this);
+		ca.add(qbt3);
+		qbt3.addActionListener(this);
+		ca.add(qbt4);
+		qbt4.addActionListener(this);
+		Submit.setForeground(Color.RED);
+		Submit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				Score sc = new Score();
+			}			  
+		});
+		ca.add(Submit);
+		setContentPane(ca);
+	}
+public void actionPerformed(ActionEvent event)
+{
+	if(event.getSource() == qbt1)
+	{
+		if(i > 1)
+		{
+			i = i + 1;
+		}
+		if(s > 1)
+		{
+			s = s + 1;
+		}
+		qf1.setText("A");
+	}
+	if(event.getSource() == qbt2)
+	{
+		if(i > 1)
+		{
+			i = i + 1;
+		}
+			qf1.setText("B");
+	}
+	if(event.getSource() == qbt3)
+	{
+		if(i > 1)
+		{
+			i = i + 1;
+		}
+			qf1.setText("C");
+	}
+	if(event.getSource() == qbt4)
+	{
+		if(i > 1)
+		{
+			i = i + 1;
+		}
+			qf1.setText("D");
+	}
+}
+class Score extends JFrame
+{
+	Score()
+	{
+		super("SCORE");
+		setSize(100,100);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container ca = getContentPane();
+		GridLayout glm = new GridLayout(2 , 1 , 2 , 2);
+		setLayout(glm);
+		ca.setBackground(Color.BLACK);
+		JLabel sc1 = new JLabel("SCORE : ");
+		JLabel sc2 = new JLabel();
+		JLabel ic1 = new JLabel("ITEMS : ");
+		JLabel ic2 = new JLabel();
+		ca.add(sc1);
+		sc1.setForeground(Color.WHITE);
+		ca.add(sc2);
+		sc2.setForeground(Color.WHITE);
+		ca.add(ic1);
+		ic1.setForeground(Color.WHITE);
+		ca.add(ic2);
+		ic2.setForeground(Color.WHITE);
+	}
+}
+}
+Submit.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent event)
+
+            {
+
+                Score sc = new Score();
+
+            }            
+
+        });
+        if(event.getSource() == qbt1)
+
+    {
+
+        if(i > 1)//counts the items if it is less than 1
+04
+        {
+
+            i = i + 1;// adds 1 point to items
+
+        }
+
+        if(s > 1)//check the score if it is less than 1
+
+        {
+
+            s = s + 1;//adds 1 to score
+
+        }
+
+        qf1.setText("A");
+
+    }
+
+    if(event.getSource() == qbt2)
+
+    {
+
+        if(i > 1)
+
+        {
+
+            i = i + 1;
+
+        }
+
+            qf1.setText("B");
+
+    }
+
+    if(event.getSource() == qbt3)
+
+    {
+
+        if(i > 1)
+
+        {
+
+            i = i + 1;
+
+        }
+
+            qf1.setText("C");
+
+    }
+
+    if(event.getSource() == qbt4)
+
+    {
+
+        if(i > 1)
+
+        {
+
+            i = i + 1;
+
+        }
+
+            qf1.setText("D");
+
+    }
+
